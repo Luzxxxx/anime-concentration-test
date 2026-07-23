@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="二次元浓度测试：挑战 226 道 ACGN 题目，生成能力画像、角色匹配结果与专属次元通行证。">
+<meta name="theme-color" content="#FF6B6B">
+<meta name="color-scheme" content="light">
+<meta property="og:type" content="website">
+<meta property="og:title" content="二次元浓度测试">
+<meta property="og:description" content="挑战番剧、游戏、声优与梗文化题目，测出你的 ACGN 浓度并生成专属次元通行证。">
+<meta property="og:image" content="./assets/images/og/cover.png">
+<meta property="og:site_name" content="二次元浓度测试">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="二次元浓度测试">
+<meta name="twitter:description" content="挑战 226 道 ACGN 题目，生成能力画像与专属次元通行证。">
+<meta name="twitter:image" content="./assets/images/og/cover.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23FF6B6B%22/%3E%3Ctext x=%2250%22 y=%2270%22 font-size=%2270%22 font-family=%22sans-serif%22 fill=%22white%22 text-anchor=%22middle%22 font-weight=%22900%22%3ES%3C/text%3E%3C/svg%3E">
+<title>二次元浓度测试</title>
+</head>
+<body class="arcade-mode">
+<div class="sakura-petals" aria-hidden="true">
+  <span class="petal"></span>
+  <span class="petal"></span>
+  <span class="petal"></span>
+  <span class="petal"></span>
+  <span class="petal"></span>
+  <span class="petal"></span>
+  <span class="petal"></span>
+  <span class="petal"></span>
+  <span class="petal"></span>
+  <span class="petal"></span>
+</div>
+<div class="stars-container" aria-hidden="true">
+  <span class="star"></span>
+  <span class="star"></span>
+  <span class="star"></span>
+  <span class="star"></span>
+  <span class="star"></span>
+  <span class="star"></span>
+  <span class="star"></span>
+</div>
+
+<main class="app">
+  <!-- WELCOME PAGE -->
+  <section class="page active" id="page-welcome" aria-label="欢迎页">
+    <div class="welcome-brandbar" aria-label="项目概览">
+      <div class="welcome-brandmark"><span aria-hidden="true"></span> ANIME CONCENTRATION TEST</div>
+      <div class="welcome-brandchips" aria-label="项目特性">
+        <span>226 题</span><span>本地优先</span><span>PWA</span>
+      </div>
+    </div>
+    <div class="pass-hero" role="region" aria-label="通行证主视觉">
+      <div class="pass-hero-left">
+        <div class="pass-hero-kicker">SAKURA ACADEMY · V3.0</div>
+        <h2>二次元浓度测试</h2>
+        <p class="pass-hero-sub">从番剧、游戏、声优与梗文化出发，测出你的 ACGN 浓度，生成专属次元通行证。</p>
+        <div class="pass-hero-meta" id="pass-hero-meta"></div>
+        <div class="pass-hero-cta">
+          <button class="pass-hero-btn" id="btn-start-welcome" aria-label="开始测试">开始测试</button>
+        </div>
+      </div>
+      <div class="pass-hero-right">
+        <div class="pass-stamp" aria-hidden="true">
+          <div class="ps-line1">通行证</div>
+          <div class="ps-line2">PASS</div>
+          <div class="ps-line3">2026</div>
+        </div>
+        <div class="pass-sticker s-sakura" aria-hidden="true">次元档案</div>
+        <div class="pass-sticker s-no" aria-hidden="true">No.2026</div>
+        <div class="pass-sticker s-vol" aria-hidden="true">Vol.07</div>
+        <div class="pass-sticker s-scan" aria-hidden="true">浓度扫描中</div>
+        <div class="pass-sticker s-pass" aria-hidden="true">PASS</div>
+        <div class="pass-tape t-1" aria-hidden="true"></div>
+        <div class="pass-tape t-2" aria-hidden="true"></div>
+        <div class="pass-hero-collage">
+          <div class="collage-img c1"><img src="./assets/images/questions/01.jpg" alt="葬送的芙莉莲"><div class="collage-label">葬送的芙莉莲</div></div>
+          <div class="collage-img c2"><img src="./assets/images/questions/02.jpg" alt="间谍过家家"><div class="collage-label">间谍过家家</div></div>
+          <div class="collage-img c3"><img src="./assets/images/questions/03.jpg" alt="电锯人"><div class="collage-label">电锯人</div></div>
+          <div class="collage-img c4"><img src="./assets/images/questions/06.jpg" alt="咒术回战"><div class="collage-label">咒术回战</div></div>
+          <div class="collage-img c5"><img src="./assets/images/questions/08.jpg" alt="鬼灭之刃"><div class="collage-label">鬼灭之刃</div></div>
+        </div>
+        <div class="pass-hero-overlay" aria-hidden="true"></div>
+        <div class="pass-hero-overlay-text">
+          <h3>次元浓度测试</h3>
+          <p>测测你的二次元浓度</p>
+        </div>
+        <div class="pass-hero-decor" aria-hidden="true">
+          <div class="decor-circle d-1"></div>
+          <div class="decor-circle d-2"></div>
+          <div class="decor-circle d-3"></div>
+          <div class="decor-star s-1"></div>
+          <div class="decor-star s-2"></div>
+          <div class="decor-star s-3"></div>
+          <div class="decor-spark sp-1"></div>
+          <div class="decor-spark sp-2"></div>
+          <div class="decor-spark sp-3"></div>
+          <div class="decor-spark sp-4"></div>
+        </div>
+      </div>
+    </div>
+    <div class="welcome-tools">
+      <button class="tool-btn" id="btn-show-history" aria-label="查看历史">
+        <span class="tool-icon">📜</span>
+        <span class="tool-label">查看历史</span>
+      </button>
+      <button class="tool-btn" id="btn-mode-choose" aria-label="选择模式">
+        <span class="tool-icon">⚙️</span>
+        <span class="tool-label">选择模式</span>
+      </button>
+      <button class="tool-btn" id="btn-achievements" aria-label="成就榜">
+        <span class="tool-icon">🏆</span>
+        <span class="tool-label">成就榜</span>
+        <span class="tool-badge" id="achievement-count"></span>
+      </button>
+      <button class="tool-btn" id="btn-reset-data" aria-label="重置数据">
+        <span class="tool-icon">🔄</span>
+        <span class="tool-label">重置数据</span>
+      </button>
+    </div>
+    <div class="welcome-history-section" tabindex="-1">
+      <div class="section-label">历史记录</div>
+      <div class="history-strip" id="welcome-history-strip"></div>
+    </div>
+    <div class="welcome-bottom" style="display:none">
+    <svg class="kanban-svg" viewBox="0 0 200 280" xmlns="http://www.w3.org/2000/svg" aria-label="原创看板娘：次元研究员小星">
+          <defs>
+            <linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#D4C4FF"/>
+              <stop offset="50%" style="stop-color:#A996F7"/>
+              <stop offset="100%" style="stop-color:#8B7AE0"/>
+            </linearGradient>
+            <linearGradient id="dressGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" style="stop-color:#FFFBF7"/>
+              <stop offset="100%" style="stop-color:#FFF0E8"/>
+            </linearGradient>
+            <linearGradient id="scannerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#72CFF5"/>
+              <stop offset="100%" style="stop-color:#A996F7"/>
+            </linearGradient>
+            <radialGradient id="cheekGrad" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" style="stop-color:#FFB6CC;stop-opacity:0.8"/>
+              <stop offset="100%" style="stop-color:#FFB6CC;stop-opacity:0"/>
+            </radialGradient>
+          </defs>
+          
+          <ellipse cx="165" cy="70" rx="18" ry="20" fill="#FFF9C4" opacity="0.9">
+            <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
+          </ellipse>
+          <polygon points="165,50 168,62 180,62 170,70 174,82 165,75 156,82 160,70 150,62 162,62" fill="#FFD54F">
+            <animate attributeName="transform" type="rotate" from="0 165 66" to="360 165 66" dur="8s" repeatCount="indefinite"/>
+          </polygon>
+          <circle cx="165" cy="66" r="5" fill="#FFF9C4"/>
+          
+          <path d="M60 75 Q30 90 25 140 Q22 170 35 185 L45 180 Q38 160 42 130 Q45 100 65 85 Z" fill="url(#hairGrad)"/>
+          <path d="M140 75 Q170 90 175 140 Q178 170 165 185 L155 180 Q162 160 158 130 Q155 100 135 85 Z" fill="url(#hairGrad)"/>
+          
+          <path d="M100 40 Q70 42 58 65 Q52 90 55 115 Q58 130 70 140 L70 150 Q55 140 48 118 Q42 85 52 58 Q62 35 100 32 Q138 35 148 58 Q158 85 152 118 Q145 140 130 150 L130 140 Q142 130 145 115 Q148 90 142 65 Q130 42 100 40 Z" fill="url(#hairGrad)"/>
+          
+          <path d="M72 55 Q68 40 80 35 Q90 32 100 38 Q105 28 115 32 Q125 36 125 50 L125 55 Q120 48 110 50 Q100 45 90 50 Q80 48 72 55 Z" fill="url(#hairGrad)"/>
+          
+          <path d="M75 50 Q65 45 62 30 Q70 22 82 28 Q90 32 88 45 Z" fill="#FFB6CC"/>
+          <path d="M125 50 Q135 45 138 30 Q130 22 118 28 Q110 32 112 45 Z" fill="#FFB6CC"/>
+          <path d="M77 48 Q70 44 68 34 Q74 28 82 33 Q87 36 86 44 Z" fill="#FFD4E4"/>
+          <path d="M123 48 Q130 44 132 34 Q126 28 118 33 Q113 36 114 44 Z" fill="#FFD4E4"/>
+          
+          <path d="M88 32 Q92 25 100 28 Q108 25 112 32 Q118 28 122 38 L118 42 Q112 36 105 38 Q100 34 95 38 Q88 36 82 42 L78 38 Q82 28 88 32 Z" fill="#3A3A4A"/>
+          
+          <circle cx="90" cy="36" r="2.5" fill="#FF7FA8"/>
+          <circle cx="110" cy="36" r="2.5" fill="#72CFF5"/>
+          
+          <path d="M70 70 Q65 95 72 118 Q80 135 100 140 Q120 135 128 118 Q135 95 130 70 Z" fill="#FFE8DC"/>
+          
+          <path d="M78 95 Q85 100 92 98" stroke="#3A3A4A" stroke-width="3" stroke-linecap="round" fill="none"/>
+          <path d="M108 98 Q115 100 122 95" stroke="#3A3A4A" stroke-width="3" stroke-linecap="round" fill="none"/>
+          <circle cx="85" cy="97" r="2" fill="#fff"/>
+          <circle cx="115" cy="97" r="2" fill="#fff"/>
+          
+          <ellipse cx="78" cy="110" rx="8" ry="5" fill="url(#cheekGrad)"/>
+          <ellipse cx="122" cy="110" rx="8" ry="5" fill="url(#cheekGrad)"/>
+          
+          <path d="M95 118 Q100 123 105 118" stroke="#E89680" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          
+          <path d="M85 115 Q88 118 92 117" stroke="#FF7FA8" stroke-width="1" fill="none" opacity="0.6"/>
+          <path d="M108 117 Q112 118 115 115" stroke="#FF7FA8" stroke-width="1" fill="none" opacity="0.6"/>
+          
+          <circle cx="130" cy="80" r="8" fill="#FFD54F"/>
+          <polygon points="130,70 132,77 139,77 133,81 135,88 130,84 125,88 127,81 121,77 128,77" fill="#FF7FA8" opacity="0.8"/>
+          
+          <path d="M65 140 Q55 160 52 185 Q50 200 58 210 L70 208 Q65 195 68 175 Q72 155 80 142 Z" fill="url(#hairGrad)" opacity="0.85"/>
+          <path d="M135 140 Q145 160 148 185 Q150 200 142 210 L130 208 Q135 195 132 175 Q128 155 120 142 Z" fill="url(#hairGrad)" opacity="0.85"/>
+          
+          <path d="M68 138 L58 200 L75 205 L82 145 Z" fill="url(#dressGrad)" stroke="#FFD4C4" stroke-width="1"/>
+          <path d="M132 138 L142 200 L125 205 L118 145 Z" fill="url(#dressGrad)" stroke="#FFD4C4" stroke-width="1"/>
+          
+          <path d="M70 140 Q100 135 130 140 L135 210 Q100 220 65 210 Z" fill="url(#dressGrad)" stroke="#FFD4C4" stroke-width="1.5"/>
+          
+          <path d="M75 145 L125 145 L128 155 L72 155 Z" fill="#FF7FA8" opacity="0.8"/>
+          <path d="M98 145 L102 160 L98 175 L96 160 Z" fill="#FFD54F"/>
+          
+          <path d="M80 140 Q70 130 65 120 Q60 108 70 100 Q78 95 85 105 L88 120 Q86 130 82 138 Z" fill="url(#dressGrad)" stroke="#FFD4C4" stroke-width="1"/>
+          <path d="M120 140 Q130 130 135 120 Q140 108 130 100 Q122 95 115 105 L112 120 Q114 130 118 138 Z" fill="url(#dressGrad)" stroke="#FFD4C4" stroke-width="1"/>
+          
+          <path d="M58 150 Q48 155 45 165 Q42 175 50 180 Q58 182 62 175 Q65 165 60 155 Z" fill="url(#dressGrad)" stroke="#FFD4C4" stroke-width="1"/>
+          <path d="M142 150 Q152 155 155 165 Q158 175 150 180 Q142 182 138 175 Q135 165 140 155 Z" fill="url(#dressGrad)" stroke="#FFD4C4" stroke-width="1"/>
+          
+          <rect x="40" y="162" width="22" height="35" rx="8" fill="url(#scannerGrad)" stroke="#5AB8E0" stroke-width="1.5"/>
+          <rect x="44" y="167" width="14" height="20" rx="3" fill="#1A2A3A" opacity="0.8"/>
+          <path d="M46 172 Q51 178 56 172" stroke="#72CFF5" stroke-width="1.5" fill="none"/>
+          <path d="M46 178 Q51 183 56 178" stroke="#A996F7" stroke-width="1.5" fill="none"/>
+          <circle cx="51" cy="191" r="2" fill="#79D9C0">
+            <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite"/>
+          </circle>
+          <rect x="48" y="158" width="6" height="4" rx="1" fill="#F4B84B"/>
+          
+          <path d="M75 210 Q72 230 70 250 L80 252 Q82 232 85 215 Z" fill="#FFF9F5" stroke="#FFD4C4" stroke-width="1"/>
+          <path d="M125 210 Q128 230 130 250 L120 252 Q118 232 115 215 Z" fill="#FFF9F5" stroke="#FFD4C4" stroke-width="1"/>
+          
+          <ellipse cx="75" cy="256" rx="12" ry="5" fill="#FF7FA8" opacity="0.8"/>
+          <ellipse cx="125" cy="256" rx="12" ry="5" fill="#FF7FA8" opacity="0.8"/>
+          
+          <circle cx="165" cy="120" r="22" fill="url(#scannerGrad)" opacity="0.15">
+            <animate attributeName="r" values="18;25;18" dur="2.5s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="165" cy="120" r="14" fill="none" stroke="#72CFF5" stroke-width="1.5" opacity="0.6" stroke-dasharray="4 3">
+            <animateTransform attributeName="transform" type="rotate" from="0 165 120" to="360 165 120" dur="6s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="165" cy="120" r="6" fill="#79D9C0" opacity="0.8">
+            <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+          </circle>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODE SELECT PAGE -->
+  <section class="page" id="page-mode" aria-label="模式选择">
+    <div class="mode-header">
+      <h2>选择难度模式</h2>
+      <p>不同模式对应不同题量与难度分布</p>
+    </div>
+    <div class="mode-grid" role="radiogroup" aria-label="难度模式">
+      <div class="mode-card" data-mode="easy" role="radio" aria-checked="false" tabindex="0">
+        <div class="mc-tape" aria-hidden="true"></div>
+        <div class="mc-rare" aria-hidden="true">
+          <span>⭐</span>
+        </div>
+        <span class="mc-deco" aria-hidden="true">🌿</span>
+        <div class="mc-stamp">已选</div>
+        <div class="mc-icon">🌱</div>
+        <div class="mc-name">轻松模式</div>
+        <div class="mc-desc">适合萌新入门</div>
+        <div class="mc-meta">
+          <span class="mc-tag">10题</span>
+          <span class="mc-tag alt">简单</span>
+        </div>
+      </div>
+      <div class="mode-card selected" data-mode="normal" role="radio" aria-checked="true" tabindex="0">
+        <div class="mc-tape" aria-hidden="true"></div>
+        <div class="mc-rare" aria-hidden="true">
+          <span>⭐</span><span>⭐</span><span>⭐</span>
+        </div>
+        <span class="mc-deco" aria-hidden="true">✨</span>
+        <div class="mc-stamp">已选</div>
+        <div class="mc-icon">⭐</div>
+        <div class="mc-name">标准模式</div>
+        <div class="mc-desc">推荐大多数人</div>
+        <div class="mc-meta">
+          <span class="mc-tag">15题</span>
+          <span class="mc-tag alt">均衡</span>
+        </div>
+      </div>
+      <div class="mode-card" data-mode="hard" role="radio" aria-checked="false" tabindex="0">
+        <div class="mc-tape" aria-hidden="true"></div>
+        <div class="mc-rare" aria-hidden="true">
+          <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+        </div>
+        <span class="mc-deco" aria-hidden="true">🔥</span>
+        <div class="mc-stamp">已选</div>
+        <div class="mc-icon">🔥</div>
+        <div class="mc-name">挑战模式</div>
+        <div class="mc-desc">大佬专属考验</div>
+        <div class="mc-meta">
+          <span class="mc-tag">20题</span>
+          <span class="mc-tag alt">困难</span>
+        </div>
+      </div>
+    </div>
+    <div class="mode-footer">
+      <label class="sound-toggle on" id="sound-toggle" tabindex="0" role="switch" aria-checked="true">
+        <span>🔊 音效</span>
+        <span class="toggle-switch" aria-hidden="true"></span>
+      </label>
+      <button class="btn btn-primary" id="btn-start-quiz" aria-label="开始答题">开始答题 →</button>
+    </div>
+  </section>
+
+  <!-- QUIZ PAGE -->
+  <section class="page" id="page-quiz" aria-label="答题页">
+    <div class="quiz-topbar">
+      <div class="topbar-left">
+        <button class="btn btn-icon btn-ghost" id="btn-back" aria-label="返回" title="返回">←</button>
+      </div>
+      <div class="topbar-center">
+        <div class="quiz-meta">
+          <span class="mode-label" id="mode-label" role="status">标准模式</span>
+          <span class="question-counter" id="question-counter" role="status">1/15</span>
+        </div>
+        <div class="timer-display" id="timer" role="status" aria-live="polite"><span class="timer-icon" aria-hidden="true">⏱</span> <span id="timer-text">30:00</span></div>
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+      </div>
+      <div class="topbar-right">
+        <span class="combo-indicator" id="combo-indicator" role="status" aria-live="polite"><span class="combo-icon" aria-hidden="true">🔥</span> <span id="combo-count">0</span> 连击</span>
+        <span class="running-score" role="status" aria-live="polite"><span class="score-icon" aria-hidden="true">⭐</span> <strong id="running-score">0</strong></span>
+      </div>
+    </div>
+    <div id="question-container"></div>
+    <div class="quiz-nav">
+      <button class="btn btn-primary" id="btn-next" style="display:none" aria-label="下一题">下一题 →</button>
+    </div>
+  </section>
+
+  <!-- LEAVE CONFIRMATION MODAL -->
+  <div class="modal-overlay" id="leave-modal" style="display:none" aria-modal="true" role="dialog" aria-labelledby="leave-modal-title">
+    <div class="modal-content" id="leave-modal-content">
+      <div class="modal-header">
+        <h3 id="leave-modal-title">⚠️ 离开挑战</h3>
+      </div>
+      <div class="modal-body">
+        <p>确定要退出本次测试吗？当前进度将丢失。</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="btn-cancel-leave" aria-label="继续答题">继续答题</button>
+        <button class="btn btn-primary" id="btn-confirm-leave" aria-label="确认退出">确认退出</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULT PAGE -->
+  <section class="page" id="page-result" aria-label="结果页">
+    <div class="result-hero">
+      <div class="cert-ribbon-top" aria-hidden="true"></div>
+      <div class="cert-stamp" aria-hidden="true"><span>次元<br>鉴定<br>合格证</span></div>
+      <div class="cert-corner tl" aria-hidden="true"></div>
+      <div class="cert-corner tr" aria-hidden="true"></div>
+      <div class="cert-corner bl" aria-hidden="true"></div>
+      <div class="cert-corner br" aria-hidden="true"></div>
+      <div class="result-rank-emoji" id="rank-emoji" aria-hidden="true">🌱</div>
+      <h2 class="result-rank-title" id="rank-title">二次元萌新</h2>
+      <p class="result-rank-desc" id="rank-desc">二次元世界的大门才刚刚为你打开</p>
+      <div class="result-metrics" role="status" aria-live="polite">
+        <div class="metric-item metric-knowledge">
+          <div class="metric-label">知识掌握度</div>
+          <div class="metric-value" id="metric-knowledge">0%</div>
+          <div class="metric-bar"><div class="metric-bar-fill" id="metric-bar-knowledge"></div></div>
+        </div>
+        <div class="metric-item metric-competitive">
+          <div class="metric-label">竞技表现</div>
+          <div class="metric-value" id="metric-competitive">0/0</div>
+          <div class="metric-bar"><div class="metric-bar-fill" id="metric-bar-competitive"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="kanban-comment" id="kanban-comment">
+      <div class="kc-avatar" aria-hidden="true">🌟</div>
+      <div class="kc-body">
+        <div class="kc-name">次元研究员 · 小星</div>
+        <div class="kc-text" id="kanban-text">恭喜完成测试！一起来看看你的次元浓度吧～</div>
+      </div>
+    </div>
+
+    <div class="result-section">
+      <h3>📊 数据统计</h3>
+      <div class="stats-grid" id="stats-grid"></div>
+    </div>
+
+    <div class="result-section">
+      <div class="radar-wrapper">
+        <div class="radar-box" id="radar-box">
+          <div class="radar-title-bar">
+            <div class="radar-title">能力雷达</div>
+          </div>
+          <div class="radar-area" id="radarArea">
+            <svg class="radar-svg" id="radarSvg"></svg>
+          </div>
+        </div>
+        
+        <div class="radar-side-panel" id="radar-side-panel">
+          <div class="comment-header">
+            <div class="comment-header-icon">🐱</div>
+            <div class="comment-header-text">
+              <span class="comment-header-title">喵喵解读</span>
+              <span class="comment-header-sub">来自二次元浓度分析喵～</span>
+            </div>
+          </div>
+          <div class="comment-bubble">
+            <div class="comment-body" id="radar-commentary"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="result-section">
+      <h3>🏷️ 分类正确率</h3>
+      <div class="cat-breakdown" id="cat-breakdown"></div>
+    </div>
+
+    <div class="result-section">
+      <div class="review-list" id="review-list"></div>
+    </div>
+
+    <div class="result-achievements" id="result-achievements">
+      <div class="result-achievements-title">🎉 本次解锁成就</div>
+      <div class="result-achievements-list" id="result-achievements-list"></div>
+    </div>
+
+    <div class="result-actions">
+      <div class="result-actions-primary">
+        <button class="btn btn-primary" id="btn-restart" aria-label="再测一次">🔄 再测一次</button>
+        <button class="btn btn-ghost" id="btn-back-home" aria-label="返回首页">🏠 返回首页</button>
+      </div>
+      <div class="result-actions-share">
+        <button class="btn btn-secondary" id="btn-share" aria-label="分享结果">📋 复制成绩</button>
+        <button class="btn btn-secondary" id="btn-poster" aria-label="生成海报" onclick="PassV2.exportShareCard()">🖼️ 保存海报</button>
+      </div>
+      <div class="share-actions" id="share-actions">
+        <button class="share-btn sb-image" onclick="PassV2.exportShareCard()">保存图片</button>
+        <button class="share-btn sb-native" onclick="PassV2.nativeShare()">一键分享</button>
+        <button class="share-btn sb-text" onclick="PassV2.copyText()">复制文案</button>
+      </div>
+    </div>
+</section>
+</main>
+
+<div class="achievement-modal" id="achievement-modal">
+  <div class="achievement-panel">
+    <div class="achievement-header">
+      <div>
+        <div class="achievement-title">🏆 成就榜</div>
+        <div class="achievement-progress" id="achievement-panel-progress">已解锁 0/10</div>
+      </div>
+      <button class="achievement-close" id="achievement-close" aria-label="关闭成就面板">×</button>
+    </div>
+    <div class="achievement-grid" id="achievement-grid"></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="reset-modal" style="display:none" aria-modal="true" role="dialog" aria-labelledby="reset-modal-title">
+  <div class="modal-content" id="reset-modal-content">
+    <div class="modal-header">
+      <h3 id="reset-modal-title">⚠️ 清空数据</h3>
+    </div>
+    <div class="modal-body">
+      <p>确定要清除所有历史记录和成就吗？此操作不可撤销。</p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" id="btn-cancel-reset" aria-label="取消重置">取消</button>
+      <button class="btn btn-danger" id="btn-confirm-reset" aria-label="确认清空">确认清空</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="achievement-unlock-toast" id="achievement-unlock-toast">
+  <div class="achievement-unlock-icon" id="achievement-unlock-icon">🏆</div>
+  <div class="achievement-unlock-title" id="achievement-unlock-title">成就解锁</div>
+  <div class="achievement-unlock-desc" id="achievement-unlock-desc">获得新成就</div>
+  <div class="achievement-unlock-badge" id="achievement-unlock-badge">普通</div>
+</div>
+
+  <script type="module" src="/src/main.js"></script>
+
+
+</body>
+</html>
