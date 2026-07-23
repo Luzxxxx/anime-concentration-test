@@ -1,99 +1,128 @@
-# 二次元浓度研究所 · 樱花街机学院版
+<div align="center">
 
-![项目封面](./assets/images/og/cover.png)
+![二次元浓度研究所封面](./public/assets/images/og/cover.png)
 
-## 项目简介
+# 二次元浓度研究所
 
-**二次元浓度研究所**是一款二次元知识测试 Web 应用，通过 226 道精心设计的题目，从番剧、游戏、声优、梗文化、综合常识五个维度全面评估用户的二次元浓度，并生成专属次元通行证。
+**ACGN Concentration Lab · Sakura Arcade Academy**
 
-### 核心功能
+一款原生 Web 打造的 ACGN 知识挑战应用：随机抽题、双计分、能力画像、角色匹配、成就记录与专属次元通行证。
 
-- 🎮 **三种挑战模式**：轻松模式（10题）、标准模式（15题）、困难模式（20题）
-- 📊 **双计分系统**：知识掌握度（百分制）+ 竞技表现（速度分+连击分）
-- 🎯 **能力雷达**：五维能力画像，直观展示各维度水平
-- 🎭 **角色匹配**：根据答题表现匹配二次元角色
-- 🏆 **成就系统**：40+ 成就徽章，记录你的二次元之旅
-- 📜 **历史记录**：完整的答题历史与成绩对比
-- 📤 **社交分享**：生成通行证海报与二维码
+[在线体验](https://luzxxxx.github.io/acgn-concentration-lab/) · [问题反馈](https://github.com/Luzxxxx/acgn-concentration-lab/issues)
 
-## 视觉风格
+</div>
 
-采用 **樱花街机学院** 设计语言：
-- 厚描边卡片 + 硬边阴影
-- 糖果色配色系统
-- 游戏关卡式界面布局
-- 完整的响应式适配
+## 项目亮点
 
-## 技术栈
+- **226 道题库**：覆盖番剧、游戏、声优、梗文化与综合常识五类内容。
+- **三种挑战模式**：轻松 10 题、标准 15 题、挑战 20 题，每类题目都有最低覆盖量。
+- **双计分系统**：知识掌握度采用难度加权，竞技表现同时计算基础分、速度奖励与连击奖励。
+- **个性化结果**：六维角色画像、20 个角色原型、段位、错题手账与解释。
+- **本地优先**：历史、成就和设置仅保存在浏览器 `localStorage`，无需注册账号。
+- **可安装 PWA**：支持离线回访、响应式布局、键盘操作和减少动效偏好。
+- **可验证工程质量**：Vite 构建、Vitest 单元测试、ESLint、内容校验与 GitHub Actions。
 
-- **前端**：原生 HTML5 / CSS3 / JavaScript
-- **图标**：Emoji + SVG
-- **数据存储**：LocalStorage
-- **字体**：ZCOOL KuaiLe（标题）+ M PLUS Rounded 1c（正文）
+## 界面预览
+
+| 首页 | 模式选择 |
+| --- | --- |
+| ![首页](./screenshots/01-homepage.png) | ![模式选择](./screenshots/02-mode-select.png) |
+
+| 答题页 | 结果页 |
+| --- | --- |
+| ![答题页](./screenshots/03-quiz-page.png) | ![结果页](./screenshots/04-result-page.png) |
+
+## 技术设计
+
+项目保留原生 HTML、CSS 和 JavaScript，不引入运行时 UI 框架；Vite 只负责开发体验和生产构建。
+
+```text
+用户操作
+   ↓
+页面状态与 UI 渲染（src/main.js）
+   ├── 抽题与选项洗牌（src/core/question-selector.js）
+   ├── 计分与分类汇总（src/core/scoring.js）
+   ├── 内容结构校验（src/core/content-validator.js）
+   ├── 题库与配置（src/data/catalog.js）
+   └── 角色数据（src/data/characters.js）
+            ↓
+      localStorage / Canvas / Web APIs
+```
+
+核心逻辑与 DOM 渲染分离后，可以在不启动浏览器的情况下验证抽题平衡、正确答案洗牌、计分边界和数据完整性。
 
 ## 快速开始
 
-### 本地运行
+### 环境要求
+
+- Node.js 22 或更高版本
+- npm 10 或更高版本
+
+### 安装与运行
 
 ```bash
-# 方式一：使用 Python 内置服务器
-python -m http.server 8080
-
-# 方式二：使用 Node.js
-node server.js
-
-# 方式三：直接双击 index.html（需本地服务器）
+git clone https://github.com/Luzxxxx/acgn-concentration-lab.git
+cd acgn-concentration-lab
+npm install
+npm run dev
 ```
 
-访问 http://localhost:8080/index.html 即可开始体验。
+Windows 用户也可以双击 `start.bat`，脚本会在首次运行时安装依赖并启动开发服务器。
 
-### 文件结构
+### 常用命令
 
+| 命令 | 用途 |
+| --- | --- |
+| `npm run dev` | 启动 Vite 开发服务器 |
+| `npm run test` | 运行 Vitest 单元测试 |
+| `npm run lint` | 检查 JavaScript 代码 |
+| `npm run validate:content` | 校验题库、角色与图片引用 |
+| `npm run build` | 生成 `dist/` 生产构建 |
+| `npm run preview` | 本地预览生产构建 |
+| `npm run check` | 依次运行 lint、test 和 build |
+
+## 目录结构
+
+```text
+.
+├── .github/workflows/       # CI 与 GitHub Pages
+├── docs/                    # 设计规格与实施记录
+├── public/                  # PWA 文件和静态图片
+├── scripts/                 # 发布前内容校验
+├── screenshots/             # README 与演示截图
+├── src/
+│   ├── core/                # 可测试的纯逻辑模块
+│   ├── data/                # 题库、配置和角色目录
+│   ├── styles/              # 基础主题与 v3 精修层
+│   └── main.js              # 页面状态、渲染与交互
+├── tests/                   # Vitest 测试
+├── index.html               # 应用 HTML 骨架
+└── vite.config.js           # 构建与测试配置
 ```
-traebisai/
-├── index.html          # 主应用文件（单文件架构）
-├── assets/
-│   └── images/         # 题目配图资源
-├── docs/
-│   └── specs/          # 设计规范文档
-├── .trae/
-│   └── documents/      # TRAE 开发计划文档
-└── README.md           # 项目说明
-```
 
-## 答题流程
+## 测试范围
 
-1. **首页** → 点击「开始测试」
-2. **模式选择** → 选择挑战难度
-3. **答题挑战** → 依次回答题目
-4. **结果结算** → 查看成绩、能力雷达、角色匹配
-5. **分享/重试** → 生成通行证或再次挑战
+- 题库 ID、题型、分类、难度、选项、答案与音频文本完整性。
+- 角色 ID、六维目标分数与匹配权重。
+- 三种模式的题量、去重和最低分类覆盖。
+- 洗牌后正确答案保持不变。
+- 基础分、速度奖励、连击上限、知识百分比与段位边界。
+- 真实浏览器中的首页 → 模式 → 10 题 → 结果页完整流程。
 
-## 无障碍支持
+## 隐私与数据
 
-- ✅ 键盘导航（Tab / Enter / Space）
-- ✅ 焦点可见（focus-visible）
-- ✅ 减少动效（prefers-reduced-motion）
-- ✅ ARIA 属性支持
+应用没有后端，也不会上传答题历史。浏览器只在本地保存成绩、成就与声音设置；用户可以从首页随时清空这些数据。
 
-## 开发记录
+## 第三方素材与免责声明
 
-本项目全程使用 **TRAE AI 开发环境** 完成，包含以下关键阶段：
+题图来自相关作品的官方公开页面，仅用于非商业知识测试与作品集演示。版权归各自权利方所有，来源记录见 [`public/assets/images/SOURCES.md`](./public/assets/images/SOURCES.md)。公开来源和署名不代表已获得再分发许可，商业使用前请替换素材或取得授权。
 
-| 阶段 | 内容 | Session ID |
-|------|------|------------|
-| 稳定化改造 | 双计分系统、历史/成就/无障碍、小样本可信度 | `6a5707fa833005b0604dc9a2` |
-| 主题令牌 | CSS 设计令牌与隔离层 | `6a576df6833005b0604dd31c` |
-| 首页/模式 | 学院大厅风格首页、关卡挑战卡 | `6a576786833005b0604dd290` |
-| 答题页 | 技能卡选项、HUD 状态栏、离开确认 | `6a576786833005b0604dd290` |
-| 结果页 | 通关证书、能力雷达、角色卡 | `6a576786833005b0604dd290` |
-| 弹窗统一 | 历史/成就/分享/重置确认 | `6a576786833005b0604dd290` |
-| 响应式收口 | 三档断点、无障碍、动效优化 | `6a576786833005b0604dd290` |
+完整边界说明见 [THIRD_PARTY_ASSETS.md](./THIRD_PARTY_ASSETS.md)。本项目是娱乐性质测试，不构成科学、心理或能力评估，也与相关作品权利方无隶属、赞助或认可关系。
+
+## 参与贡献
+
+提交题目、修复或界面改进前，请阅读 [CONTRIBUTING.md](./CONTRIBUTING.md) 并运行 `npm run check`。
 
 ## 许可证
 
-MIT License
-
----
-
-**二次元浓度研究所** · 樱花街机学院版
+原创代码与原创素材采用 [MIT License](./LICENSE)。第三方图片、作品名称、角色与商标不包含在 MIT 授权范围内。

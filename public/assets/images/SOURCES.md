@@ -16,7 +16,7 @@
 - `02.jpg` · **间谍过家家** · 官方主视觉 · 来源 `https://spy-family.net/assets/og/ogp21.jpg` · 抓取 2026-07-14 · 抓自 https://spy-family.net/ · 版权 © SPY×FAMILY制作委员会 / Wit Studio × CloverWorks
 - `03.jpg` · **电锯人** · 官方主视觉 · 来源 `https://chainsawman.dog/assets/portal/og/ogp.jpg?251221` · 抓取 2026-07-14 · 抓自 https://chainsawman.dog/ · 版权 © チェンソーマン製作委員会 / MAPPA
 - `04.jpg` · **莉可丽丝** · 官方主视觉 · 来源 `https://lycoris-recoil.com/ogp4.png` · 抓取 2026-07-14 · 抓自 https://lycoris-recoil.com/ · 版权 © Lycoris Recoil制作委员会 / A-1 Pictures
-- `05.jpg` · **我推的孩子** · 官方主视觉 · 来源 `https://ichigoproduction.com/core_sys/images/others/ogp.jpg` · 抓取 2026-07-14 · 抓自 https://ichigoproduction.com/ · 版权 © アイドルマスターシリーズ製作委員会 / A-1 Pictures
+- `05.jpg` · **我推的孩子** · 官方主视觉 · 来源 `https://ichigoproduction.com/core_sys/images/others/ogp.jpg` · 抓取 2026-07-14 · 抓自 https://ichigoproduction.com/ · 版权 © 赤坂アカ×横槍メンゴ／集英社・「【推しの子】」製作委員会
 - `06.jpg` · **咒术回战** · 官方主视觉 · 来源 `https://jujutsukaisen.jp/images/ogp19.jpg` · 抓取 2026-07-14 · 抓自 https://jujutsukaisen.jp/ · 版权 © 呪術廻戦製作委員会 / MAPPA
 - `07.jpg` · **药屋少女的呢喃** · 官方主视觉 · 来源 `https://kusuriyanohitorigoto.jp/kh/wp-content/uploads/2025/10/ogp_season3.jpg` · 抓取 2026-07-14 · 抓自 https://kusuriyanohitorigoto.jp/ · 版权 © 薬屋のひとりごと製作委員会 / TOHO animation
 - `08.jpg` · **鬼灭之刃** · 官方主视觉 · 来源 `https://kimetsu.com/assets/ogp.png` · 抓取 2026-07-14 · 抓自 https://kimetsu.com/ · 版权 © 鬼滅の刃製作委員会 / ufotable
