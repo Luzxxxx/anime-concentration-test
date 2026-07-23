@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFE4D6"/>
+      <stop offset="50%" stop-color="#FFD1DC"/>
+      <stop offset="100%" stop-color="#D9D6FF"/>
+    </linearGradient>
+    <radialGradient id="spark" cx="50%" cy="40%" r="40%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.95)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- 大型樱花花瓣剪影（原创几何造型） -->
+  <g opacity="0.85">
+    <g transform="translate(180 130)">
+      <path d="M0 -50 Q 18 -30 14 0 Q 28 -8 50 -10 Q 30 12 14 28 Q 22 50 0 60 Q -22 50 -14 28 Q -30 12 -50 -10 Q -28 -8 -14 0 Q -18 -30 0 -50 Z" fill="#FF7FA8" opacity="0.9"/>
+    </g>
+    <g transform="translate(640 200) scale(0.7)">
+      <path d="M0 -50 Q 18 -30 14 0 Q 28 -8 50 -10 Q 30 12 14 28 Q 22 50 0 60 Q -22 50 -14 28 Q -30 12 -50 -10 Q -28 -8 -14 0 Q -18 -30 0 -50 Z" fill="#FFB6CC"/>
+    </g>
+    <g transform="translate(700 460) scale(0.6)">
+      <path d="M0 -50 Q 18 -30 14 0 Q 28 -8 50 -10 Q 30 12 14 28 Q 22 50 0 60 Q -22 50 -14 28 Q -30 12 -50 -10 Q -28 -8 -14 0 Q -18 -30 0 -50 Z" fill="#A78BFA"/>
+    </g>
+    <g transform="translate(120 480) scale(0.5)">
+      <path d="M0 -50 Q 18 -30 14 0 Q 28 -8 50 -10 Q 30 12 14 28 Q 22 50 0 60 Q -22 50 -14 28 Q -30 12 -50 -10 Q -28 -8 -14 0 Q -18 -30 0 -50 Z" fill="#FFD666"/>
+    </g>
+  </g>
+  <!-- 中心樱花主花 -->
+  <g transform="translate(400 300)">
+    <g transform="rotate(0)">
+      <ellipse cx="0" cy="-80" rx="42" ry="80" fill="#FF6B6B"/>
+    </g>
+    <g transform="rotate(72)">
+      <ellipse cx="0" cy="-80" rx="42" ry="80" fill="#FF8E53"/>
+    </g>
+    <g transform="rotate(144)">
+      <ellipse cx="0" cy="-80" rx="42" ry="80" fill="#FF6B6B"/>
+    </g>
+    <g transform="rotate(216)">
+      <ellipse cx="0" cy="-80" rx="42" ry="80" fill="#FF8E53"/>
+    </g>
+    <g transform="rotate(288)">
+      <ellipse cx="0" cy="-80" rx="42" ry="80" fill="#FF6B6B"/>
+    </g>
+    <circle cx="0" cy="0" r="28" fill="#FFD666"/>
+    <circle cx="0" cy="0" r="12" fill="#FF6B6B"/>
+  </g>
+  <!-- 闪光 -->
+  <rect width="800" height="600" fill="url(#spark)" opacity="0.3"/>
+  <!-- 文字标识 -->
+  <text x="400" y="520" font-family="sans-serif" font-size="22" font-weight="800" fill="#5A3D52" text-anchor="middle" letter-spacing="6">SAKURA ACADEMY · Vol.07</text>
+</svg>
